@@ -1,0 +1,23 @@
+{% extends 'homepage/base.html' %}
+{% load static %}
+{% block search %}
+
+<h5>Result search for {{searched}}</h5>
+    <br>
+     <div class="row" style="width:100%">
+       {% for products in keys %}
+        <div class="col-lg-3">
+          <img class="thumbnail" src="{{product.ImageURL}}">
+          <div class="box-element product">
+            <h6><strong>{{products.title}}</strong></h6>
+            <hr>
+
+            <button data-product={{products.id}} data-action ="add" class="btn btn-outline-secondary add-btn update-cart">Add to cart</button>
+            <a class="btn btn-outline-success" href="#">Views</a>
+            <h6 style="display: inline-block; float: right"><strong>${{products.price | floatformat:2}}</strong></h6>
+          </div>
+        </div>
+       {% endfor %}
+     </div>
+
+{% endblock %}
